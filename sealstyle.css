@@ -181,3 +181,115 @@ body {
 .delay-2 { animation-delay: 0.4s; }
 
 .tracking-wide { letter-spacing: 0.1em; }
+
+/* Services Card Hover Effects */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+    border-top: 4px solid transparent;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #fdf90d; /* You can change this to your SEAL blue or gold */
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #212529; /* Dark color for the icon */
+    margin-bottom: 15px;
+
+}
+/* ========================================== */
+/* HERO VIDEO BACKGROUND STYLES */
+/* ========================================== */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh; /* Keeps the hero section tall */
+    display: flex;
+    align-items: center;
+}
+
+/* Stretches the video to cover the background */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+}
+
+/* Adds the dark tint so your white text is easy to read */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 52, 62, 0.75); /* SEAL Dark color with 75% opacity */
+    z-index: 1;
+}
+
+/* Pulls your text and search bar to the front */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Stats Section Styling */
+.stats-section {
+    background-color: var(--seal-dark);
+    color: white;
+    padding: 80px 0;
+    border-top: 3px solid var(--seal-gold);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--seal-gold);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Specialized Sector Card Styling */
+.industry-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.industry-card:hover {
+    border-color: var(--seal-gold) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Ensure modal images are visible and sized correctly */
+.modal-industry-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block !important; /* Forces it to show up */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+

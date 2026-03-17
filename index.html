@@ -6,16 +6,18 @@
     <title>SEAL CORP | Sea Air Land Global Logistics</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="sealstyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="sealstyle.css">
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-seal-dark py-3 fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
-                <img src="sealcorplogo.jpg" alt="SEAL Corp Logo">
-                <span class="text-gold fs-3">SEAL</span> <span class="ms-2 text-light fs-4">CORP</span>
+                <img src="sealcorplogo.jpg" alt="SEAL Corp Logo" style="height: 40px;">
+                <span class="text-gold fs-3 ms-2">SEAL</span> <span class="ms-2 text-light fs-4">CORP</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -24,7 +26,6 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#why-us">Why Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#industries">Industries</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="request.html">Get Quote</a></li>
@@ -33,172 +34,334 @@
         </div>
     </nav>
 
-    <header class="hero-section" style="min-height: 80vh; display: flex; align-items: center;">
-        <div class="hero-particles"></div>
-        <div class="container text-center">
-            <h1 class="display-3 fw-bold mb-3 text-white" data-aos="fade-up" data-aos-duration="1000">Your  Logistics Partner</h1>
-            <p class="lead mb-5 text-white" style="opacity: 0.9;" data-aos="fade-up" data-aos-delay="200">Agile, personalized freight solutions for growing businesses. <br> We handle the logistics so you can focus on growth.</p>
+    <header class="hero-section">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="videos/cargovid.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+
+        <div class="container text-center hero-content">
+            <h1 class="display-3 fw-bold mb-3 text-white" data-aos="fade-up" data-aos-duration="1000">Your Logistics Partner</h1>
+            <p class="lead mb-5 text-white" style="opacity: 0.9;" data-aos="fade-up" data-aos-delay="200">
+                Agile, personalized freight solutions for growing businesses. <br> We handle the logistics so you can focus on growth.
+            </p>
             
             <div class="hero-search-container" data-aos="zoom-in" data-aos-delay="400">
-                <div class="search-box-wrapper">
-                    <input type="text" class="form-control search-input" placeholder="What do you need to ship? (e.g., Sea Freight to Asia)...">
-                    <button class="btn btn-gold btn-search" type="button" onclick="window.location.href='request.html'">
-                        <span>Get Quote</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="ms-2">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-gold btn-lg px-5 py-3 fw-bold shadow-lg rounded-pill d-flex align-items-center" 
+                            type="button" 
+                            onclick="window.location.href='request.html'"
+                            style="font-size: 1.25rem; transition: all 0.3s ease; border: none;">
+                        <span>Get Instant Quote</span>
+                        <i class="bi bi-arrow-right-circle ms-3 fs-4"></i>
                     </button>
                 </div>
                 
                 <div class="popular-searches d-flex flex-wrap align-items-center justify-content-center mt-4" data-aos="fade-up" data-aos-delay="600">
-                    <span class="quick-links-label small me-3">QUICK LINKS:</span>
-                    <a href="#services" class="badge rounded-pill popular-pill">📋 Our Services</a>
-                    <a href="request.html" class="badge rounded-pill popular-pill">📄 Instant Quote</a>
-                    <a href="#why-us" class="badge rounded-pill popular-pill">⭐ Why Choose Us</a>
+                    <span class="small me-3 text-white-50 fw-bold">QUICK LINKS:</span>
+                    <a href="#services" class="badge bg-light text-dark text-decoration-none p-2 mx-1 shadow-sm">📋 Our Services</a>
+                    <a href="#industries" class="badge bg-light text-dark text-decoration-none p-2 mx-1 shadow-sm">🏢 Industries</a>
+                    <a href="about.html" class="badge bg-light text-dark text-decoration-none p-2 mx-1 shadow-sm">ℹ️ About Us</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="services" class="container services-container mb-5 py-5">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h6 class="text-gold text-uppercase tracking-wide fw-bold mb-2">What We Offer</h6>
-            <h2 class="fw-bold display-5" style="color: var(--seal-dark);">Flexible Logistics Solutions</h2>
-            <p class="text-muted fs-5 mt-3">Shipping solutions that grow with your business.</p>
-        </div>
-        
-        <div class="row text-center g-4">
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card h-100 border-0 shadow service-card p-4 bg-white">
-                    <div class="service-icon-wrapper">
-                        <div class="service-icon">🚢</div>
-                        <div class="service-icon-bg"></div>
-                    </div>
-                    <h4 class="card-title fw-bold mt-4" style="color: var(--seal-dark);">Sea Freight</h4>
-                    <p class="card-text text-muted">Cost-effective FCL and LCL options for international shipping.</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card h-100 border-0 shadow service-card p-4 bg-white">
-                    <div class="service-icon-wrapper">
-                        <div class="service-icon">✈️</div>
-                        <div class="service-icon-bg"></div>
-                    </div>
-                    <h4 class="card-title fw-bold mt-4" style="color: var(--seal-dark);">Air Freight</h4>
-                    <p class="card-text text-muted">Express delivery with fast customs clearance for urgent shipments.</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card h-100 border-0 shadow service-card p-4 bg-white">
-                    <div class="service-icon-wrapper">
-                        <div class="service-icon">🚛</div>
-                        <div class="service-icon-bg"></div>
-                    </div>
-                    <h4 class="card-title fw-bold mt-4" style="color: var(--seal-dark);">Land Transport</h4>
-                    <p class="card-text text-muted">Domestic trucking and first/last-mile solutions tailored to you.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="why-us" class="py-5 mb-5 bg-light">
+    <section class="py-4 bg-light border-bottom">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h6 class="text-gold text-uppercase tracking-wide fw-bold mb-2">The SEAL Difference</h6>
-                <h2 class="fw-bold display-5" style="color: var(--seal-dark);">Built for Growing Businesses</h2>
+            <div class="d-flex flex-wrap justify-content-around align-items-center opacity-50">
+                <h6 class="fw-bold text-muted mb-0">TRUSTED NETWORK:</h6>
+                <span class="fs-5 fw-bold ms-3"><i class="bi bi-shield-check"></i> GLOBAL TECH</span>
+                <span class="fs-5 fw-bold ms-3"><i class="bi bi-basket"></i> AGRI-FRESH</span>
+                <span class="fs-5 fw-bold ms-3"><i class="bi bi-gear-wide-connected"></i> AUTO-PARTS CO.</span>
+                <span class="fs-5 fw-bold ms-3"><i class="bi bi-shop"></i> RETAIL GIANT</span>
             </div>
-            
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-6">
-                    <div class="why-item mb-4" data-aos="fade-right" data-aos-delay="100">
-                        <div class="d-flex align-items-center">
-                            <div class="why-icon fs-2 me-3">🤝</div>
-                            <div>
-                                <h5 class="fw-bold mb-1">Dedicated Account Manager</h5>
-                                <p class="text-muted mb-0 small">One point of contact who knows your business personally.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="why-item mb-4" data-aos="fade-right" data-aos-delay="200">
-                        <div class="d-flex align-items-center">
-                            <div class="why-icon fs-2 me-3">⚡</div>
-                            <div>
-                                <h5 class="fw-bold mb-1">Rapid Response Times</h5>
-                                <p class="text-muted mb-0 small">Get quotes and updates at startup speed.</p>
-                            </div>
-                        </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white" id="services">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="badge bg-primary px-3 py-2 mb-2">Our Expertise</span>
+                <h2 class="fw-bold" style="color: #212529;">Global Logistics Solutions</h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    Comprehensive supply chain management tailored to your specific industry needs, from port to warehouse.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow-sm bg-light">
+                        <i class="bi bi-water service-icon text-primary fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Ocean Freight</h5>
+                        <p class="small text-muted mb-0">Reliable FCL and LCL shipping options across major global trade lanes.</p>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="testimonial-card bg-white p-4 rounded-4 shadow">
-                        <p class="lead italic">"SEAL CORP gave us flexible solutions and helped us navigate customs with ease. Highly recommended!"</p>
-                        <h6 class="fw-bold mb-0 mt-3">John Doe</h6>
-                        <small class="text-muted">Operations Manager, TechGear Imports</small>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow-sm bg-light">
+                        <i class="bi bi-airplane service-icon text-primary fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Air Freight</h5>
+                        <p class="small text-muted mb-0">Expedited cargo services with chargeable weight optimization.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow-sm bg-light">
+                        <i class="bi bi-file-earmark-check service-icon text-primary fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Customs Brokerage</h5>
+                        <p class="small text-muted mb-0">Seamless customs clearance and strict compliance with trade laws.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow-sm bg-light">
+                        <i class="bi bi-boxes service-icon text-primary fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Warehousing</h5>
+                        <p class="small text-muted mb-0">Secure storage, inventory management, and cross-docking distribution.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="industries" class="container py-5 mb-5">
+    
+
+    <section id="industries" class="container py-5 mb-5 mt-4">
         <div class="text-center mb-5" data-aos="fade-up">
             <h2 class="fw-bold" style="color: var(--seal-dark);">Specialized for Your Sector</h2>
+            <p class="text-muted">Click a sector to see our specialized handling and trade solutions.</p>
         </div>
+        
         <div class="row g-4">
             <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="p-4 bg-white border rounded text-center h-100 industry-card">
+                <div class="p-4 bg-white border rounded text-center h-100 industry-card shadow-sm" 
+                     data-bs-toggle="modal" 
+                     data-bs-target="#ecommerceModal">
                     <div class="fs-1 mb-2">📦</div>
                     <h6 class="fw-bold">E-commerce</h6>
+                    <small class="text-primary">View Details &rarr;</small>
                 </div>
             </div>
+
             <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
-                <div class="p-4 bg-white border rounded text-center h-100 industry-card">
+                <div class="p-4 bg-white border rounded text-center h-100 industry-card shadow-sm" 
+                     data-bs-toggle="modal" 
+                     data-bs-target="#mfgModal">
                     <div class="fs-1 mb-2">⚙️</div>
                     <h6 class="fw-bold">Manufacturing</h6>
+                    <small class="text-primary">View Details &rarr;</small>
                 </div>
             </div>
+
             <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="p-4 bg-white border rounded text-center h-100 industry-card">
+                <div class="p-4 bg-white border rounded text-center h-100 industry-card shadow-sm" 
+                     data-bs-toggle="modal" 
+                     data-bs-target="#foodModal">
                     <div class="fs-1 mb-2">❄️</div>
                     <h6 class="fw-bold">Food & Bev</h6>
+                    <small class="text-primary">View Details &rarr;</small>
                 </div>
             </div>
+
             <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
-                <div class="p-4 bg-white border rounded text-center h-100 industry-card">
+                <div class="p-4 bg-white border rounded text-center h-100 industry-card shadow-sm" 
+                     data-bs-toggle="modal" 
+                     data-bs-target="#hazmatModal">
                     <div class="fs-1 mb-2">⚠️</div>
                     <h6 class="fw-bold">Hazmat</h6>
+                    <small class="text-primary">View Details &rarr;</small>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container py-5 mb-5">
-        <div class="bg-seal-dark text-white p-5 rounded-4 text-center shadow-lg" data-aos="zoom-in">
-            <h2 class="fw-bold display-5 mb-3">Integrate Your Global Supply Chain</h2>
-            <p class="lead mb-4 text-white-50">Go beyond simple shipping. SEAL CORP provides the end-to-end visibility and strategic logistics planning your business needs to scale globally.</p>
-            <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="request.html" class="btn btn-gold btn-lg px-5">Explore Solutions</a>
-                <a href="about.html" class="btn btn-outline-light btn-sm px-4 d-flex align-items-center">Learn About Our Reach</a>
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-3" data-aos="fade-up">
+                    <span class="stat-number" data-target="1200">0</span>
+                    <span class="stat-label">Shipments Delivered</span>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Global Trade Routes</span>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <span class="stat-number" data-target="24">0</span>
+                    <span class="stat-label">/7 Expert Support</span>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <span class="stat-number" data-target="99">0</span>
+                    <span class="stat-label">% On-Time Delivery</span>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section class="py-5 text-white" style="background: linear-gradient(45deg, #2c3e50, #1a252f);">
+        <div class="container text-center py-5" data-aos="zoom-in">
+            <h2 class="fw-bold mb-3">Ready to Move Your Cargo?</h2>
+            <p class="lead mb-4" style="opacity: 0.9;">Experience the precision of SEAL CORP's global logistics network.</p>
+            <a href="request.html" class="btn btn-gold btn-lg px-5 py-3 rounded-pill shadow fw-bold" style="transition: all 0.3s ease;">
+                Start Your Calculation <i class="bi bi-arrow-right-short fs-4 align-middle"></i>
+            </a>
         </div>
     </section>
 
     <footer class="bg-seal-dark text-white py-5 border-top" style="border-color: var(--seal-gold) !important;">
         <div class="container text-center">
             <div class="mb-4">
-                <a href="https://www.facebook.com/profile.php?id=61558615297656" target="_blank" class="text-white mx-2">Facebook</a>
-                <a href="about.html" class="text-white mx-2">About Us</a>
-                <a href="request.html" class="text-white mx-2">Get Quote</a>
+                <a href="https://www.facebook.com/profile.php?id=61558615297656" target="_blank" class="text-white mx-2 text-decoration-none hover-gold"><i class="bi bi-facebook"></i> Facebook</a>
+                <a href="about.html" class="text-white mx-2 text-decoration-none hover-gold">About Us</a>
+                <a href="request.html" class="text-white mx-2 text-decoration-none hover-gold">Get Quote</a>
             </div>
             <p class="mb-0 text-white-50">&copy; 2026 SEAL CORP | Sea Air Land Global Logistics Corporation. All rights reserved.</p>
         </div>
     </footer>
 
+    <div class="modal fade" id="ecommerceModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">E-commerce Logistics Solutions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-start">
+                    <img src="pictures/warehouseauto.jpg" class="modal-industry-img rounded shadow-sm w-100 mb-3" alt="E-commerce">
+                    <h6 class="fw-bold text-primary">Precision Last-Mile Delivery</h6>
+                    <p class="text-muted">In the fast-paced world of online retail, timing is everything. SEAL CORP provides specialized warehousing and cross-docking solutions to ensure your customers get their orders on time, every time.</p>
+                    <ul class="small text-muted">
+                        <li>Real-time inventory tracking and management.</li>
+                        <li>Automated labeling and customs documentation.</li>
+                        <li>Scalable storage for seasonal peaks like 11.11.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="request.html" class="btn btn-gold px-4">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mfgModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Industrial & Manufacturing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-start">
+                    <img src="pictures/repetitive-manufacturing.jpg" class="modal-industry-img rounded shadow-sm w-100 mb-3" alt="Manufacturing">
+                    <h6 class="fw-bold text-primary">Just-In-Time Supply Chain</h6>
+                    <p class="text-muted">SEAL CORP supports heavy industry with specialized project cargo and oversized equipment handling. We ensure your production line never stops by managing the flow of raw materials and finished goods.</p>
+                    <ul class="small text-muted">
+                        <li>Oversized and heavy-lift cargo transport.</li>
+                        <li>End-to-end visibility for raw material procurement.</li>
+                        <li>Multi-modal transport solutions (Sea-Air-Land).</li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="request.html" class="btn btn-gold px-4">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="foodModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Food, Beverage & Cold Chain</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-start">
+                    <img src="pictures/cointaincargo.jpg" class="modal-industry-img rounded shadow-sm w-100 mb-3" alt="Food and Beverage">
+                    <h6 class="fw-bold text-primary">Temperature-Controlled Excellence</h6>
+                    <p class="text-muted">Perishables require precision. Our cold chain solutions maintain the integrity of your food and beverage products through every step of the journey.</p>
+                    <ul class="small text-muted">
+                        <li>Climate-controlled reefer containers.</li>
+                        <li>Sanitized warehousing and strict FDA compliance.</li>
+                        <li>Express air freight for highly perishable goods.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="request.html" class="btn btn-gold px-4">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="hazmatModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Hazardous Materials & Chemicals</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-start">
+                    <img src="pictures/chemical.jpg" class="modal-industry-img rounded shadow-sm w-100 mb-3" alt="Hazmat">
+                    <h6 class="fw-bold text-danger">Safety-First Logistics</h6>
+                    <p class="text-muted">Handling dangerous goods requires specialized knowledge and strict adherence to international safety standards. SEAL CORP is certified to handle Class 1-9 hazardous materials.</p>
+                    <ul class="small text-muted">
+                        <li>Certified Hazmat documentation and labeling.</li>
+                        <li>Specialized spill-prevention equipment and protocols.</li>
+                        <li>Expertise in international maritime safety standards.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="request.html" class="btn btn-gold px-4">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
+        // Initialize Animations
         AOS.init({ duration: 800, once: true });
         
+        // Counter Animation Logic
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200; 
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target + (target === 24 || target === 99 ? "" : "+");
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Trigger animation when the section is in view
+        let animated = false;
+        window.addEventListener('scroll', () => {
+            const statsSection = document.querySelector('.stats-section');
+            if(statsSection) {
+                const sectionPos = statsSection.getBoundingClientRect().top;
+                const screenPos = window.innerHeight;
+
+                if (sectionPos < screenPos && !animated) {
+                    animateCounters();
+                    animated = true;
+                }
+            }
+        });
+        
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('mainNav');
             if (window.scrollY > 50) {

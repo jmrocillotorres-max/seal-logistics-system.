@@ -102,18 +102,22 @@
     <h6 class="fw-bold mb-3" style="color: var(--seal-dark);">📦 Cargo Volume Calculator (CBM)</h6>
     <p class="small text-muted mb-4">Estimate your total volume to determine the best shipping method.</p>
     
-    <div class="row g-3">
-        <div class="col-md-3">
+   <div class="row g-3">
+        <div class="col-md-2">
             <label class="form-label small">Length (cm)</label>
             <input type="number" id="calcLength" class="form-control" placeholder="0" oninput="calculateCBM()">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label class="form-label small">Width (cm)</label>
             <input type="number" id="calcWidth" class="form-control" placeholder="0" oninput="calculateCBM()">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label class="form-label small">Height (cm)</label>
             <input type="number" id="calcHeight" class="form-control" placeholder="0" oninput="calculateCBM()">
+        </div>
+        <div class="col-md-3">
+            <label class="form-label small">Weight/pc (kg)</label>
+            <input type="number" id="calcWeight" class="form-control" placeholder="0" oninput="calculateCBM()">
         </div>
         <div class="col-md-3">
             <label class="form-label small">Quantity (pcs)</label>
@@ -121,16 +125,23 @@
         </div>
     </div>
 
-    <div class="mt-4 p-3 bg-white rounded border d-flex justify-content-between align-items-center">
-        <div>
+    <div class="mt-4 p-3 bg-white rounded border d-flex justify-content-between align-items-center flex-wrap">
+        <div class="me-3">
             <span class="text-muted small d-block">Total Volume:</span>
-            <h4 class="fw-bold mb-0 text-gold"><span id="totalCBM">0.000</span> CBM</h4>
+            <h5 class="fw-bold mb-0 text-primary"><span id="totalCBM">0.000</span> CBM</h5>
         </div>
-        <div class="text-end">
-            <span class="badge bg-seal-dark p-2" id="containerAdvice">Enter dimensions...</span>
+        <div>
+            <span class="text-muted small d-block">Total Weight:</span>
+            <h5 class="fw-bold mb-0 text-danger"><span id="totalWeight">0.00</span> kg</h5>
+        </div>
+        <div class="text-end mt-2 mt-md-0">
+            <button type="button" class="btn btn-dark badge p-2 fs-6" id="containerAdvice" data-bs-toggle="modal" data-bs-target="#freightInfoModal" style="cursor: pointer; border: none;">
+                Enter dimensions...
+            </button>
         </div>
     </div>
-</div>
+
+    
                     <div class="d-grid gap-2 col-md-6 mx-auto mt-4">
                         <button class="btn btn-gold btn-lg" type="submit">Submit Inquiry</button>
                     </div>
@@ -199,30 +210,62 @@ function calculateCBM() {
     const L = parseFloat(document.getElementById('calcLength').value) || 0;
     const W = parseFloat(document.getElementById('calcWidth').value) || 0;
     const H = parseFloat(document.getElementById('calcHeight').value) || 0;
+    const Kg = parseFloat(document.getElementById('calcWeight').value) || 0;
     const Q = parseFloat(document.getElementById('calcQty').value) || 1;
 
-    // Formula: (L * W * H) / 1,000,000 to get Cubic Meters
+    // Formulas
     const cbm = (L * W * H * Q) / 1000000;
+    const totalKg = Kg * Q;
     
-    // Display result limited to 3 decimal places
+    // Display results
     document.getElementById('totalCBM').innerText = cbm.toFixed(3);
+    document.getElementById('totalWeight').innerText = totalKg.toFixed(2);
 
-    // Logic for Container Advice
+    // Logic for Advice (Taking both Weight and CBM into account)
     let advice = "";
-    if (cbm === 0) {
-        advice = "Enter dimensions...";
-    } else if (cbm <= 1) {
-        advice = "Suggested: Air Freight or LCL";
+    if (cbm === 0 && totalKg === 0) {
+        advice = "Enter dimensions... 🛈";
+    } else if (cbm <= 1 && totalKg < 500) {
+        // If it's small and under 500kg, Air Freight is an option
+        advice = "Suggested: Air Freight or LCL 🛈";
     } else if (cbm > 1 && cbm <= 15) {
-        advice = "Suggested: LCL (Less than Container Load)";
+        advice = "Suggested: LCL (Shared Container) 🛈";
     } else if (cbm > 15 && cbm <= 28) {
-        advice = "Suggested: 20ft Standard Container";
+        advice = "Suggested: FCL (20ft Container) 🛈";
     } else if (cbm > 28) {
-        advice = "Suggested: 40ft High Cube Container";
+        advice = "Suggested: FCL (40ft Container) 🛈";
+    } else {
+        // Catch-all for heavy but small cargo
+        advice = "Suggested: LCL (Heavy Cargo) 🛈";
     }
 
     document.getElementById('containerAdvice').innerText = advice;
 }
 </script>
+<div class="modal fade" id="freightInfoModal" tabindex="-1" aria-labelledby="freightInfoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="freightInfoModalLabel">📦 Shipping Methods Explained</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6 class="fw-bold text-primary">LCL (Less than Container Load)</h6>
+        <p class="small text-muted mb-4">Best for smaller shipments. Your cargo shares container space with other shipments, meaning you only pay for the volume you use. Cost-effective but can take slightly longer due to consolidation.</p>
+        
+        <h6 class="fw-bold text-primary">FCL (Full Container Load)</h6>
+        <p class="small text-muted mb-4">You rent an entire 20ft or 40ft container exclusively for your goods. This is faster and more secure since the container is sealed at the origin and only opened when it reaches you.</p>
+
+        <h6 class="fw-bold text-primary">Air Freight</h6>
+        <p class="small text-muted mb-0">The fastest shipping method available. Ideal for highly urgent, lightweight, or high-value cargo, though it is the most expensive option. Charged by weight (kg) or volume, whichever is higher.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Got it!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
