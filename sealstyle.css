@@ -292,4 +292,22 @@ body {
     border-radius: 8px;
     margin-bottom: 20px;
 }
+/* ========================================== */
+/* PREMIUM SPACING UTILITIES                  */
+/* ========================================== */
 
+.section-padding {
+    padding-top: 140px !important;   /* Massive top gap */
+    padding-bottom: 140px !important;/* Massive bottom gap */
+}
+
+.section-divider {
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Very subtle line between sections */
+}
+
+/* Optional: Make the Hero section taller */
+.hero-section {
+    min-height: 100vh !important; /* Forces it to fill the entire screen height */
+    display: flex;
+    align-items: center;
+}
