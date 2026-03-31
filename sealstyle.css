@@ -502,3 +502,43 @@ body {
     align-items: baseline;
     white-space: nowrap; /* This prevents the /7 or % from jumping to a new line */
 }
+
+
+// ============================================================================
+// 5. CBM CALCULATOR LOGIC (Request Page)
+// ============================================================================
+// Make the function globally available so the HTML oninput attributes can find it
+window.calculateCBM = function() {
+    // 1. Get the values from the input boxes (default to 0 if empty)
+    const length = parseFloat(document.getElementById('calcLength').value) || 0;
+    const width = parseFloat(document.getElementById('calcWidth').value) || 0;
+    const height = parseFloat(document.getElementById('calcHeight').value) || 0;
+    const weight = parseFloat(document.getElementById('calcWeight').value) || 0;
+    const qty = parseFloat(document.getElementById('calcQty').value) || 1;
+
+    // 2. Calculate Total Volume (CBM) and Weight
+    // Formula: (L x W x H in cm) / 1,000,000 = CBM per piece
+    const totalVolume = ((length * width * height) / 1000000) * qty;
+    const totalWeight = weight * qty;
+
+    // 3. Update the big numbers on the screen
+    document.getElementById('totalCBM').innerText = totalVolume.toFixed(3);
+    document.getElementById('totalWeight').innerText = totalWeight.toFixed(2);
+
+    // 4. Update the Advice Button dynamically based on the volume
+    const adviceBtn = document.getElementById('containerAdvice');
+    
+    if (totalVolume === 0) {
+        adviceBtn.innerText = "Enter dimensions...";
+        adviceBtn.className = "btn btn-dark badge p-2 fs-6";
+    } else if (totalVolume < 15) {
+        adviceBtn.innerText = "💡 Recommended: LCL (Click to learn why)";
+        adviceBtn.className = "btn btn-primary badge p-2 fs-6 shadow-sm";
+    } else if (totalVolume >= 15 && totalVolume <= 33) {
+        adviceBtn.innerText = "💡 Recommended: 20ft FCL (Click to learn why)";
+        adviceBtn.className = "btn btn-success badge p-2 fs-6 shadow-sm";
+    } else {
+        adviceBtn.innerText = "💡 Recommended: 40ft/HQ FCL (Click to learn why)";
+        adviceBtn.className = "btn btn-success badge p-2 fs-6 shadow-sm";
+    }
+};

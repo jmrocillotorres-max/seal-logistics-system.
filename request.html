@@ -60,47 +60,53 @@
                     <h5 class="fw-bold mb-3" style="color: var(--seal-dark);">📦 Step 1: Cargo Volume Calculator (CBM)</h5>
                     <p class="small text-muted mb-4">Estimate your total volume to determine the best shipping method before filling out the form.</p>
                     
-                    <div class="row g-3">
-                       <div class="col-md-2">
-    <label class="form-label small fw-bold">Length (cm)</label>
-    <input type="number" id="calcLength" class="form-control form-control-lg" placeholder="0" oninput="calculateCBM()" inputmode="decimal">
-</div>
-<div class="col-md-2">
-    <label class="form-label small fw-bold">Width (cm)</label>
-    <input type="number" id="calcWidth" class="form-control form-control-lg" placeholder="0" oninput="calculateCBM()" inputmode="decimal">
-</div>
-<div class="col-md-2">
-    <label class="form-label small fw-bold">Height (cm)</label>
-    <input type="number" id="calcHeight" class="form-control form-control-lg" placeholder="0" oninput="calculateCBM()" inputmode="decimal">
-</div>
-<div class="col-md-3">
-    <label class="form-label small fw-bold">Weight/pc (kg)</label>
-    <input type="number" id="calcWeight" class="form-control form-control-lg" placeholder="0" oninput="calculateCBM()" inputmode="decimal">
-</div>
-<div class="col-md-3">
-    <label class="form-label small fw-bold">Quantity (pcs)</label>
-    <input type="number" id="calcQty" class="form-control form-control-lg" placeholder="1" value="1" oninput="calculateCBM()" inputmode="decimal">
-</div>
+                   <div class="row g-3">
+                        <div class="col-md-2">
+                            <label class="form-label small fw-bold">Length (cm)</label>
+                            <input type="number" id="calcLength" class="form-control form-control-lg" placeholder="0">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label small fw-bold">Width (cm)</label>
+                            <input type="number" id="calcWidth" class="form-control form-control-lg" placeholder="0">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label small fw-bold">Height (cm)</label>
+                            <input type="number" id="calcHeight" class="form-control form-control-lg" placeholder="0">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-bold">Weight/pc (kg)</label>
+                            <input type="number" id="calcWeight" class="form-control form-control-lg" placeholder="0">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-bold">Quantity (pcs)</label>
+                            <input type="number" id="calcQty" class="form-control form-control-lg" placeholder="1" value="1">
+                        </div>
                     </div>
 
-                    <div class="mt-4 p-3 bg-white rounded border d-flex justify-content-between align-items-center flex-wrap">
+<div class="mt-4 p-3 bg-white rounded border d-flex justify-content-between align-items-center flex-wrap">
                         <div class="me-3">
                             <span class="text-muted small d-block">Total Volume:</span>
-                            <h5 class="fw-bold mb-0 text-primary"><span id="totalCBM">0.000</span> CBM</h5>
+                            <div class="d-flex align-items-center">
+                                <h5 class="fw-bold mb-0 text-primary"><span id="totalCBM">0.0000</span> CBM</h5>
+                                <span id="cargoRecommendation" class="badge d-none ms-2"></span>
+                            </div>
                         </div>
                         <div>
                             <span class="text-muted small d-block">Total Weight:</span>
                             <h5 class="fw-bold mb-0 text-danger"><span id="totalWeight">0.00</span> kg</h5>
                         </div>
                         <div class="text-end mt-2 mt-md-0">
-                            <button type="button" class="btn btn-dark badge p-2 fs-6" id="containerAdvice" data-bs-toggle="modal" data-bs-target="#freightInfoModal" style="cursor: pointer; border: none;">
-                                Enter dimensions...
+                            <button type="button" class="btn btn-dark px-4 py-2 fw-bold shadow-sm" onclick="runCalculator()">
+                                Calculate Cargo
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-end mb-3">
+                <div class="d-flex justify-content-end mb-3 gap-2">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#freightInfoModal" class="btn btn-outline-primary btn-sm fw-bold shadow-sm">
+                        📦 Shipping Methods Guide
+                    </a>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#incotermsModal" class="btn btn-outline-secondary btn-sm fw-bold shadow-sm">
                         📘 Incoterms Quick Guide
                     </a>
@@ -196,6 +202,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-   
+    <script src="sealscript.js"></script>
 </body>
 </html>
