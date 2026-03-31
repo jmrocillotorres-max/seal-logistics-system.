@@ -332,3 +332,173 @@ body {
     transform: scale(1.2);
     color: var(--seal-gold) !important;
 }
+
+/* ========================================== */
+/* MOBILE & TABLET OPTIMIZATION               */
+/* ========================================== */
+
+/* Tablets and Phones (Smaller than 992px) */
+@media (max-width: 991.98px) {
+    .hero-section {
+        min-height: 80vh; /* Shorter hero on mobile */
+    }
+    .display-3 {
+        font-size: 2.5rem; /* Shrink title so it doesn't overlap */
+    }
+    .hero-content p {
+        font-size: 1.1rem !important;
+    }
+    .navbar-brand img {
+        height: 30px; /* Smaller logo for mobile nav */
+    }
+}
+
+/* Phones (Smaller than 768px) */
+@media (max-width: 767.98px) {
+    .section-padding {
+        padding: 40px 0; /* Less padding to save vertical space */
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    /* Stack cards vertically with small gaps */
+    .row.g-4 > div {
+        margin-bottom: 10px;
+    }
+    /* Ensure buttons are "thumb-friendly" */
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* ========================================== */
+/* OPTION 1: THE CONTOUR HALO (DROP SHADOW)   */
+/* ========================================== */
+.brand-logo-wide {
+    height: 55px;
+    width: auto; 
+    object-fit: contain; 
+    padding: 5px 0; /* Removed the wide padding since there is no background */
+    
+    /* Traces the exact shape of the PNG with a soft white light */
+    filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8)); 
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8)); /* For Safari */
+    
+    transition: all 0.3s ease;
+}
+
+/* Make the glow intensify on hover */
+.brand-logo-wide:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0px 0px 12px rgba(255, 255, 255, 1));
+    -webkit-filter: drop-shadow(0px 0px 12px rgba(255, 255, 255, 1));
+}
+
+@media (max-width: 767.98px) {
+    .brand-logo-wide {
+        height: 45px; 
+    }
+}
+
+
+/* ========================================== */
+/* SERVICE CARDS MODERN UI UPGRADE            */
+/* ========================================== */
+.service-card {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-top: 4px solid transparent !important; /* Invisible border to prevent jumping */
+}
+
+/* Hover State */
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+    border-top: 4px solid var(--seal-gold) !important; /* Gold accent appears */
+}
+
+/* Make the arrow animate on hover */
+.service-link i {
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+}
+
+.service-card:hover .service-link i {
+    transform: translateX(5px); /* Arrow shoots right */
+}
+
+
+/* ========================================== */
+/* MOBILE OPTIMIZATIONS (Phones & Tablets)    */
+/* ========================================== */
+@media (max-width: 767.98px) {
+    /* Shrink the giant Hero text so it doesn't overflow */
+    .hero-section h1.display-3 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-section p.lead {
+        font-size: 1.1rem !important;
+        padding: 0 15px;
+    }
+
+    /* Reduce heavy padding so content isn't "squeezed" */
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .p-5 {
+        padding: 1.5rem !important;
+    }
+
+    /* Make buttons full-width for easier thumb-tapping */
+    .hero-search-container .btn-lg {
+        width: 85%; /* Shrunk from 100% to leave nice breathing room on the sides */
+        max-width: 320px; /* Prevents it from getting too wide on horizontal phones */
+        margin: 0 auto; /* Ensures it stays perfectly centered */
+        justify-content: center; /* Keeps the text and arrow centered inside the button */
+        font-size: 1.1rem !important;
+    }
+
+    /* Stack the calculator inputs in 2 columns instead of 1 long list */
+    #services .col-md-2, 
+    .col-md-3 {
+        width: 50% !important;
+        flex: 0 0 50%;
+    }
+
+    /* Fix the headquarters images in about.html */
+    #headquarters img.position-absolute {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        margin-top: 15px;
+        border: 4px solid var(--seal-gold) !important;
+    }
+}
+
+/* Mobile fixes for Logo and Stats */
+@media (max-width: 768px) {
+    .brand-logo-wide {
+        height: 50px !important; /* Slightly smaller for mobile headers */
+    }
+
+    .stat-number {
+        font-size: 2.5rem !important; /* Adjusting size so they fit side-by-side */
+    }
+
+    .stat-label {
+        font-size: 0.8rem !important;
+    }
+}
+
+/* Force symbols to stay attached to numbers */
+.stat-container {
+    display: inline-flex;
+    align-items: baseline;
+    white-space: nowrap; /* This prevents the /7 or % from jumping to a new line */
+}
